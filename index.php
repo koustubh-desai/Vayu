@@ -16,34 +16,19 @@
 ?>
 <!Doctype html>
 <html <?php language_attributes(); ?>>
-   <?php get_header() ?>
-   <body>
-      <div id="body-wrapper">
-         <nav id="branding">
-            <p><?php echo get_bloginfo('name');?></p>
-         </nav>
-         <div class="content-wrapper">
-            <div class="left-sidebar">
-               <p><?php echo get_bloginfo('description');?></p>
-            </div>
-            <div class="blog-main">
-             <div class="blog-main-child">
-               <?php
-                  get_template_part('content',get_post_format()); 
-                  ?>  
-             </div>
-            </div>
-            <!-- /.blog-main -->
-         </div>
-         <div id="sidebar-wrapper">
-            <?php get_sidebar()?>
-         </div>
-         <div id="footer">
-            <?php get_footer() ?>
-         </div>
+<?php get_header() ?>
+
+<body ng-app="MyApp">
+<div id="main-wrapper" class="container">
+   <h1>MIMOA</h1>
+   <?php get_template_part('kd_global/main-navigation',get_post_format());?>
+   <?php get_template_part('kd_blogs/content',get_post_format()); ?> 
+      <div id="sidebar-wrapper">
+         <?php get_sidebar()?>
       </div>
-      <style>
-         
-      </style>
+      <div id="footer">
+         <?php get_footer('blog') ?>
+      </div>
+   </div>
    </body>
 </html>
